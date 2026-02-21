@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block body %}
+<div>
+    <div class="w-full h-full">
+        <img src="https://static.vecteezy.com/system/resources/previews/005/741/775/non_2x/realistic-optical-illusion-background-design-free-vector.jpg" class="-z-999 blur-sm absolute top-0 w-screen h-screen">
+        <div class="absolute left-0 top-0 w-screen h-screen flex justify-center items-center">
+            <div class="text-center bg-gray-200 p-4 rounded-xl max-w-200">
+                <h1 class="font-display text-5xl text-center text-black mb-4">Twisted</h1>
+                <div class="my-3 font-display">
+                    A unique YSWS where you make Cool Projects And Complete a twisted roadmap full of challenges to get PC!
+                </div>
+                <a href="https://forms.fillout.com/t/5H3DKNAADius">
+                    <button class="font-display bg-cta text-2xl text-white py-2 px-5 rounded-md">
+                        RSVP
+                    </button>
+                </a>
+                <a href="{% url 'faqs' %}">
+                    <button class="font-display bg-cta text-2xl text-white py-2 px-5 rounded-md">
+                        FAQs
+                    </button>
+                </a>
+            </div>
+        </div>
+        <img src="https://assets.hackclub.com/flag-orpheus-top.svg" class="w-48 ml-20">
+    </div>
+</div>
+{% endblock body %}

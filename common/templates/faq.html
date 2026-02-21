@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block body %}
+{% load markdownify %}
+
+<div>
+    <div class="w-full h-full">
+        <img src="https://static.vecteezy.com/system/resources/previews/005/741/775/non_2x/realistic-optical-illusion-background-design-free-vector.jpg" class="-z-999 blur-sm fixed top-0 w-screen h-screen">
+        <img src="https://assets.hackclub.com/flag-orpheus-top.svg" class="w-40 fixed top-0 left-5 z-999">
+        <div class="absolute top-0 bottom-0 left-0 right-0">
+            <div class="container bg-gray-200 mx-auto min-h-screen">
+                <div class="w-full bg-gray-300 h-20 flex align-middle px-10">
+                    <div class="my-auto w-full text-center">
+                        <a href="{% url 'homepage' %}">
+                            <span class="font-display text-3xl text-black mb-4 text-center">Twisted</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h1 class="font-display text-5xl text-center text-black mb-4">FAQs</h1>
+                    <div>
+                        <ul>
+                            {% for faq in faqs %}
+                            <li class="my-5">
+                                <table>
+                                    <tr>
+                                        <td class="pr-3 align-top">Q:</td>
+                                        <td>{{ faq.question|safe|markdownify|linebreaksbr }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="pr-3 align-top">A:</td>
+                                        <td>{{ faq.answer|safe|markdownify|linebreaksbr }}</td>
+                                    </tr>
+                                </table>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock body %}
