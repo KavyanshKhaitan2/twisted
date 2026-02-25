@@ -58,11 +58,13 @@
                                 <table>
                                     <tr>
                                         <td class="pr-3 align-top">Q:</td>
+                                    {% if user.is_staff %}
                                         <td class="w-full">{{ faq.question|safe|markdownify|linebreaksbr }}
                                             <a href="{% url 'admin:common_faq_change' faq.pk %}" class="text-blue-600 underline">
                                                 (edit)
                                             </a>
                                         </td>
+                                    {% endif %}
                                     </tr>
                                     <tr>
                                         <td class="pr-3 align-top">A:</td>
