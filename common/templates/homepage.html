@@ -1,25 +1,64 @@
 {% extends "base.html" %}
 {% block body %}
-<div>
+{% load markdownify %}
+
+<img src="https://static.vecteezy.com/system/resources/previews/005/741/775/non_2x/realistic-optical-illusion-background-design-free-vector.jpg" class="-z-999 blur-sm fixed top-0 left-0 w-screen h-screen">
+
+<div class="overflow-x-clip">
     <div class="w-full h-full">
-        <img src="https://static.vecteezy.com/system/resources/previews/005/741/775/non_2x/realistic-optical-illusion-background-design-free-vector.jpg" class="-z-999 blur-sm absolute top-0 w-screen h-screen">
-        <div class="absolute left-0 top-0 w-screen h-screen flex justify-center items-center">
-            <div class="text-center bg-gray-200 p-4 rounded-xl max-w-200">
-                <h1 class="font-display text-5xl text-center text-black mb-4">Twisted</h1>
-                <div class="my-3 font-display">
-                    A unique YSWS where you make Cool Projects And Complete a twisted roadmap full of challenges to get PC!
+        <div class="absolute left-0 top-0 w-full h-screen flex justify-center items-center">
+            <div>
+                <div class="text-center bg-gray-200 p-4 rounded-xl max-w-200">
+                    <h1 class="font-display text-5xl text-center text-black mb-4">Twisted</h1>
+                    <div class="my-3 font-display">
+                        {{ front_text }}
+                    </div>
+                    {% if rsvp_link %}
+                    <a href="{{ rsvp_link }}">
+                        <button class="font-display bg-cta text-2xl text-white py-2 px-5 rounded-md">
+                            RSVP
+                        </button>
+                    </a>
+                    {% endif %}
+                    <a href="#faqs">
+                        <button class="font-display bg-cta text-2xl text-white py-2 px-5 rounded-md">
+                            FAQs
+                        </button>
+                    </a>
                 </div>
-                <a href="https://forms.fillout.com/t/5H3DKNAADius">
-                    <button class="font-display bg-cta text-2xl text-white py-2 px-5 rounded-md">
-                        RSVP
-                    </button>
-                </a>
-                <a href="{% url 'faqs' %}">
-                    <button class="font-display bg-cta text-2xl text-white py-2 px-5 rounded-md">
-                        FAQs
-                    </button>
-                </a>
             </div>
+        </div>
+        <div class="absolute left-0 top-[100vh] w-full h-screen flex justify-center">
+    <div id="faqs" class="w-full h-full">
+        <div class="absolute top-0 bottom-0 left-0 right-0">
+            <div class="container bg-gray-200 mx-auto min-h-screen rounded-2xl">
+                <div class="bg-gray-300 p-4 rounded-t-2xl">
+                    <h1 class="font-display text-5xl text-center text-black">FAQs</h1>
+                </div>
+                <div class="p-5">
+                    <div>
+                        <ul>
+                            {% for faq in faqs %}
+                            <li class="my-5">
+                                <table>
+                                    <tr>
+                                        <td class="pr-3 align-top">Q:</td>
+                                        <td>{{ faq.question|safe|markdownify|linebreaksbr }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="pr-3 align-top">A:</td>
+                                        <td>{{ faq.answer|safe|markdownify|linebreaksbr }}</td>
+                                    </tr>
+                                </table>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
         </div>
         <img src="https://assets.hackclub.com/flag-orpheus-top.svg" class="w-48 ml-20">
     </div>

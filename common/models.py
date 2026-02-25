@@ -7,3 +7,10 @@ class FAQ(models.Model):
     
     def __str__(self):
         return self.question
+
+class KVPair(models.Model):
+    key = models.CharField(unique=True)
+    value = models.TextField(blank=True)
+    
+    def __str__(self):
+        return self.key
