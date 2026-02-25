@@ -25,6 +25,13 @@
                             FAQs
                         </button>
                     </a>
+                    {% if user.is_staff %}
+                    <a href="{% url 'admin:index' %}">
+                        <button class="font-display bg-cta text-2xl text-white py-2 px-5 rounded-md">
+                            Admin panel
+                        </button>
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -32,8 +39,16 @@
     <div id="faqs" class="w-full h-full">
         <div class="absolute top-0 bottom-0 left-0 right-0">
             <div class="container bg-gray-200 mx-auto min-h-screen rounded-2xl">
-                <div class="bg-gray-300 p-4 rounded-t-2xl">
-                    <h1 class="font-display text-5xl text-center text-black">FAQs</h1>
+                <div class="bg-gray-300 p-4 rounded-t-2xl text-center">
+                    <h1 class="font-display text-5xl text-center text-black inline-block">FAQs</h1>
+                    {% if user.is_staff %}
+                        <a href="{% url 'admin:common_faq_changelist' %}" class="text-blue-600 underline mx-1">
+                            (edit)
+                        </a>
+                        <a href="{% url 'admin:common_faq_add' %}" class="text-blue-600 underline mx-1">
+                            (new)
+                        </a>
+                    {% endif %}
                 </div>
                 <div class="p-5">
                     <div>
@@ -43,7 +58,11 @@
                                 <table>
                                     <tr>
                                         <td class="pr-3 align-top">Q:</td>
-                                        <td>{{ faq.question|safe|markdownify|linebreaksbr }}</td>
+                                        <td class="w-full">{{ faq.question|safe|markdownify|linebreaksbr }}
+                                            <a href="{% url 'admin:common_faq_change' faq.pk %}" class="text-blue-600 underline">
+                                                (edit)
+                                            </a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="pr-3 align-top">A:</td>
