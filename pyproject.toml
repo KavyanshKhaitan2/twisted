@@ -9,4 +9,6 @@ dependencies = [
     "django-browser-reload>=1.21.0",
     "django-markdownify>=0.9.6",
     "django-tailwind[cookiecutter,honcho,reload]>=4.4.2",
+    "gunicorn>=25.1.0",
+    "python-dotenv>=1.2.1",
 ]
