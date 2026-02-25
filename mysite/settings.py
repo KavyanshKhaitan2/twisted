@@ -33,6 +33,7 @@ else:
     print("Starting with DEBUG off.")
 
 ALLOWED_HOSTS = ['twisted.kavyansh.org', 'localhost']
+CSRF_TRUSTED_ORIGINS = ['https://*.kavyansh.org', 'http://*.kavyansh.org', 'http://localhost', 'https://localhost']
 
 
 # Application definition
