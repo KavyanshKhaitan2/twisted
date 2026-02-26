@@ -11,6 +11,8 @@ class FAQ(models.Model):
 class KVPair(models.Model):
     key = models.CharField(unique=True)
     value = models.TextField(blank=True)
+    note = models.TextField(blank=True)
+    
     
     def __str__(self):
         return self.key
