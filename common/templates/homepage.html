@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block body %}
 {% load markdownify %}
-<div class="{{ extra_bg_classes|safe }} fixed top-0 left-0 -z-999">
+<div class="{% if bgeffect != '3' %}{{ extra_bg_classes|safe }}{% endif %} fixed top-0 left-0 -z-999">
     <div class="relative">
-        <img id="bgimg" src="https://static.vecteezy.com/system/resources/previews/005/741/775/non_2x/realistic-optical-illusion-background-design-free-vector.jpg" class="w-screen h-screen">
+        <img id="bgimg" src="https://static.vecteezy.com/system/resources/previews/005/741/775/non_2x/realistic-optical-illusion-background-design-free-vector.jpg" class="relative -z-999 w-screen h-screen {% if bgeffect == '3' %}{{ extra_bg_classes|safe }}{% endif %}">
         {% if bg_magnifier_width != "0" %}
         <style>
             .img-magnifier-glass {

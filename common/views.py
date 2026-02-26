@@ -20,7 +20,7 @@ class HomepageView(View):
         front_text.save()
 
         bgeffect, created = KVPair.objects.get_or_create(key="bgeffect")
-        bgeffect.note = "available values: 1 & 2\n\nDelete this to reset."
+        bgeffect.note = "available values: 1, 2, 3\n\nDelete this to reset."
         if created:
             bgeffect.value = "1"
         bgeffect.save()
