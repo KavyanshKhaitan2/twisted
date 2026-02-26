@@ -26,7 +26,7 @@ class HomepageView(View):
         bgeffect.save()
 
         extra_bg_classes, created = KVPair.objects.get_or_create(key="extra_bg_classes")
-        extra_bg_classes.note = "Extra bg classes.\nFor blur, set to blur-sm, blur-md, blur-lg.\nMight support any tailwindcss class lol.\n\nDelete this to reset."
+        extra_bg_classes.note = "Extra bg classes.\nFor blur, set to blur-xs, blur-sm, blur-md, blur-lg.\nMight support any tailwindcss class lol.\n\nDelete this to reset."
         if created:
             extra_bg_classes.value = "blur-sm"
         extra_bg_classes.save()
